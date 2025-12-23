@@ -103,6 +103,14 @@ This repository currently only contains a profile `README.md`. This doc captures
 - Tests:
   - `npm test` (requires `jest` installed in devDependencies)
 
+## Connector setup (WordPress + GA4 placeholders)
+- WordPress (optional): set the following repository secrets if you want to use a real WP instance:
+  - `WP_API_URL` — base URL for the WordPress site (e.g., `https://example.com`)
+  - `WP_API_KEY` — optional Bearer token / API key if the WP site requires auth
+- GA4 (optional): set service account JSON as a secret (e.g., `GA4_SA_KEY`) and the property ID (`GA4_PROPERTY_ID`) to enable analytics-based selection
+- The generator will prefer the WordPress connector when `WP_API_URL` is present; otherwise it uses `src/connectors/mock_cms.js` for local dev and tests.
+- Do NOT commit credentials; use GitHub Secrets and document secret names in PRs when enabling production.
+
 
 ## Acceptance criteria
 - A weekly job runs and produces a draft PR in the repo.

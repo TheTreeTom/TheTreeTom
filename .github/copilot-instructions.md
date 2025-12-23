@@ -34,6 +34,7 @@ Help contributors (and AI coding agents) be immediately productive by: 1) asking
 
 ## Integration & external dependencies
 - There are no discoverable integrations or external services configured — request API keys, deployment targets, and analytic endpoints before building integrations (e.g., marketing automation, site scraping).
+- Connector secrets used by automation (placeholders): `WP_API_URL`, `WP_API_KEY`, `GA4_SA_KEY`, `GA4_PROPERTY_ID`. Always ask where to store these as GitHub Secrets and never commit credentials to the repo.
 
 ## Marketing agent / `www.aditechusa.com` — discovery & MVP checklist 🧭
 If asked to build a marketing agent for aditechusa.com, start by asking:
