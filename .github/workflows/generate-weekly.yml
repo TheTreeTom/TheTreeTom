@@ -1,0 +1,26 @@
+name: Generate weekly St. Johns draft
+
+on:
+  schedule:
+    - cron: '0 14 * * 1' # every Monday at 14:00 UTC (9am ET during standard time)
+  workflow_dispatch: {}
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install deps
+        run: npm ci || true
+      - name: Generate draft
+        run: node src/generator/index.js --pr
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create PR (fallback)
+        if: failure()
+        run: |
+          echo "Automatic PR creation failed; check run logs."

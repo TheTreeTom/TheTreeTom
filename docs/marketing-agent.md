@@ -25,6 +25,17 @@ This repository currently only contains a profile `README.md`. This doc captures
 - Preferred tech stack (Node / Python / serverless / container / no preference):
 
 
+## Localization checklist (St. Johns County) 📍
+- Canonical county name: **St. Johns County (FL)** — confirm spelling and postal conventions.
+- Target cities / ZIPs: e.g., St. Augustine, Ponte Vedra Beach, 32080, 32092 (fill exact list).
+- Local keywords & SEO phrases: e.g., "St. Johns County [service]", "St. Augustine [service]" — include in meta and H1.
+- Local events / partners to monitor: county fairs, chamber events, school calendars.
+- Local contact info & times: add county-specific address/phone in templates; use Eastern Time (ET).
+- Assets: local photos, logos, testimonials (store under `assets/local/st-johns/`).
+- CRM segment/tag: `st-johns-county`.
+- PR / draft naming: `content/drafts/st-johns-YYYY-MM-DD.md`.
+- Ads & geotargeting: restrict paid campaigns to St. Johns County + approved ZIPs; use county-level GA segments for reporting.
+
 ## Proposed MVP (goal: deliver value quickly)
 1. Goal: Weekly newsletter draft generation and a simple campaign reporting dashboard.
 2. Inputs:
@@ -69,15 +80,28 @@ This repository currently only contains a profile `README.md`. This doc captures
 - Respect GDPR/CAN-SPAM: include unsubscribe links, only send to opt-in lists, log consent provenance.
 - Manual approval gate required before any send or publish.
 - Keep logs of generated content and approvals for audit.
+- For local development, use `src/connectors/mock_cms.js`. Replace with a real CMS connector once credentials are available and add tests that mock network responses.
 
 
 ## First implementation tasks (approx. timeline)
 1. (1–2 days) Discovery: collect answers to the checklist above and approve project scope.
 2. (2–4 days) Scaffold repo and CI, add templates and a sample connector (read-only CMS or site scraper).
-3. (3–7 days) Implement generator for newsletter draft, create PR automation to save drafts.
+3. (3–7 days) Implement generator for newsletter draft, create PR automation to save drafts. (Added: a Node generator scaffold is available at `src/generator/index.js`.)
 4. (2–4 days) Add GA4 connector and simple reporting.
 5. (1–2 days) Set up credentials, secrets, and add manual approval workflow.
 6. (ongoing) Iterate on templates, QA, and add additional integrations (CRM, ads).
+
+
+## How to run locally
+- Preview templates:
+  - `npm run preview:landing`
+  - `npm run preview:newsletter`
+- Generate a draft locally (no PR):
+  - `npm run generate:st-johns`
+- Generate a draft and create a branch + PR (requires `gh` auth locally):
+  - `node src/generator/index.js --pr`
+- Tests:
+  - `npm test` (requires `jest` installed in devDependencies)
 
 
 ## Acceptance criteria
@@ -95,3 +119,4 @@ This repository currently only contains a profile `README.md`. This doc captures
 ---
 
 If you want, I can: 1) open a PR with this doc and a small scaffold, 2) start implementing step (2) above, or 3) schedule a short discovery call (or message) to fill in the checklist answers.
+3

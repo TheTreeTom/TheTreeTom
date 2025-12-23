@@ -42,6 +42,12 @@ If asked to build a marketing agent for aditechusa.com, start by asking:
 - Access & credentials available for integrations (CMS, Google, email provider, analytics)
 - Allowed channels and frequency (email, socials, paid ads) and legal constraints (CAN-SPAM, GDPR)
 
+### Localizing campaigns (St. Johns County) 📌
+- Use county-specific keywords and add `LocalBusiness` JSON-LD to local landing pages.
+- Add CRM tag `st-johns-county` and create a separate PR per localized draft: `content/drafts/st-johns-YYYY-MM-DD.md`.
+- For paid ads, geotarget to St. Johns County + approved ZIPs; add UTM `utm_region=st-johns` for reporting.
+- Always include a manual approval step and verify opt-ins before any local send to comply with CAN-SPAM/GDPR.
+
 MVP steps (after approval):
 1. Create a small design doc with goals, KPIs, and required integrations.
 2. Prototype content templates and sample workflows (email/SMS/social posts) using real site copy.
