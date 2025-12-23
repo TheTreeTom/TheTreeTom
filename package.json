@@ -1,0 +1,9 @@
+{
+  "name": "thetreetom-marketing-agent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "preview:landing": "node scripts/preview/render_preview.js --type landing --template templates/landing/st-johns.html",
+    "preview:newsletter": "node scripts/preview/render_preview.js --type newsletter --draft content/drafts/st-johns-2025-12-23.md"
+  }
+}
